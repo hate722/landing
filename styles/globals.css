@@ -4,35 +4,20 @@ body {
   margin: 0;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   color: #000;
   font-size: 16px;
-  box-sizing: border-box;
   font-weight: normal;
 }
 
-header,
-footer {
-  min-height: 80px;
-}
-
-footer {
-  background-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.7),
-          rgba(0, 0, 0, 0.5)
-  );
-  text-align: center;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-}
-
 a {
-  color: #000;
   text-decoration: none;
-  font-size: 17px;
+  color: #000;
 }

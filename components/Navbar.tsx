@@ -8,11 +8,10 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import {Button} from "@mui/material";
+import {Avatar, Button, MenuItem, Tooltip} from "@mui/material";
+import {useRouter} from "next/router";
+import styles from "../styles/Navbar.module.css";
 
 const navigation = [
   { id: 1, title: 'Главная', path: '/' },
@@ -21,34 +20,27 @@ const navigation = [
   { id: 4, title: 'FAQ', path: '/faq' }
 ];
 
-const settings = ['Аккаунт', 'Выйти'];
+const pages = ['Products', 'Pricing', 'Blog'];
 
 const Navbar:FC = () => {
 
+    const { pathname } = useRouter();
+
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElUser(event.currentTarget);
     };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
-
   return (
       <Box>
-        <AppBar position="fixed" sx={{ background: "white", boxShadow: "none", padding: "10px 0" }}>
+        <AppBar className={"appBar"} position="fixed" sx={{ background: "white", boxShadow: "none", padding: "20px 0", transition: "all .4s ease-out" }}>
             <Container>
                         <Toolbar disableGutters>
-                            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: "black" }} />
                             <Typography
                                 variant="h6"
                                 noWrap
@@ -66,11 +58,47 @@ const Navbar:FC = () => {
                             >
                                 LOGO
                             </Typography>
+                            <Typography
+                                variant="h5"
+                                noWrap
+                                component="a"
+                                href="/"
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: 'flex', md: 'none' },
+                                    flexGrow: 1,
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'black',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                LOGO
+                            </Typography>
+                                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: "space-evenly" }, alignItems: "center" }}>
+                                    {navigation.map(({ id, title, path }) => (
+                                                <Link className={pathname === path ? styles.nav_link + " " + styles.active : styles.nav_link} key={id} href={path} onClick={handleCloseNavMenu}>
+                                                    {title}
+                                                </Link>
+                                    ))}
 
-                            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                                    <Button
+                                        sx={{
+                                            boxShadow: "0 0 15px #4c72ff",
+                                            "&:hover": {
+                                                boxShadow: "0 0 30px #4c72ff"
+                                            },
+                                            borderRadius: "6px"
+                                        }}
+                                        variant="contained"
+                                    >
+                                        Личный кабинет
+                                    </Button>
+                                </Box>
+                            <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
                                 <IconButton
                                     size="large"
-                                    aria-label="account of current user"
                                     aria-controls="menu-appbar"
                                     aria-haspopup="true"
                                     onClick={handleOpenNavMenu}
@@ -97,82 +125,13 @@ const Navbar:FC = () => {
                                     }}
                                 >
                                     {navigation.map(({ id, title, path }) => (
+                                        <MenuItem key={path} onClick={handleCloseNavMenu}>
                                         <Link key={id} href={path} onClick={handleCloseNavMenu}>
-                                                {title}
+                                            {title}
                                         </Link>
+                                        </MenuItem>
                                     ))}
                                 </Menu>
-                            </Box>
-                            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                            <Typography
-                                variant="h5"
-                                noWrap
-                                component="a"
-                                href="/"
-                                sx={{
-                                    mr: 2,
-                                    display: { xs: 'flex', md: 'none' },
-                                    flexGrow: 1,
-                                    fontFamily: 'monospace',
-                                    fontWeight: 700,
-                                    letterSpacing: '.3rem',
-                                    color: 'inherit',
-                                    textDecoration: 'none',
-                                }}
-                            >
-                                LOGO
-                            </Typography>
-                                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: "center" }}>
-                                    {navigation.map(({ id, title, path }) => (
-                                        <Box sx={{
-                                            "&:not(:last-child)": {
-                                                marginRight: "40px"
-                                            }
-                                        }}>
-                                            <Link key={id} href={path} onClick={handleCloseNavMenu}>
-                                                {title}
-                                            </Link>
-                                        </Box>
-                                    ))}
-
-                                    <Button
-                                        sx={{
-                                            boxShadow: "0 0 15px #4c72ff"
-                                        }}
-                                        variant="contained"
-                                    >
-                                        Личный кабинет
-                                    </Button>
-                                </Box>
-
-                            <Box sx={{ flexGrow: 0 }}>
-                                <Tooltip title="Аккаунт">
-                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar src="/broken-image.jpg" />
-                                    </IconButton>
-                                </Tooltip>
-                                    <Menu
-                                        sx={{ mt: '45px' }}
-                                        id="menu-appbar"
-                                        anchorEl={anchorElUser}
-                                        anchorOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'right',
-                                        }}
-                                        keepMounted
-                                        transformOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'right',
-                                        }}
-                                        open={Boolean(anchorElUser)}
-                                        onClose={handleCloseUserMenu}
-                                    >
-                                            {settings.map((setting) => (
-                                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                                    <Typography textAlign="center">{setting}</Typography>
-                                                </MenuItem>
-                                            ))}
-                                    </Menu>
                             </Box>
                         </Toolbar>
             </Container>
