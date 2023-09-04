@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, {FC, useState} from "react";
 import Link from "next/link";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,6 +12,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import {Avatar, Button, MenuItem, Tooltip} from "@mui/material";
 import {useRouter} from "next/router";
 import styles from "../styles/Navbar.module.css";
+import style from "../styles/Navbar.module.css";
+import {AiOutlineClose, AiOutlineMenu} from "react-icons/ai";
 
 const navigation = [
   { id: 1, title: 'Главная', path: '/' },
@@ -78,11 +80,10 @@ const Navbar:FC = () => {
                             </Typography>
                                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: "space-evenly" }, alignItems: "center" }}>
                                     {navigation.map(({ id, title, path }) => (
-                                                <Link className={pathname === path ? styles.nav_link + " " + styles.active : styles.nav_link} key={id} href={path} onClick={handleCloseNavMenu}>
-                                                    {title}
-                                                </Link>
+                                        <Link className={pathname === path ? [styles.nav_link, styles.active].join(' ') : ''} key={id} href={path}>
+                                            {title}
+                                        </Link>
                                     ))}
-
                                     <Button
                                         sx={{
                                             boxShadow: "0 0 15px #4c72ff",
@@ -97,41 +98,65 @@ const Navbar:FC = () => {
                                     </Button>
                                 </Box>
                             <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
-                                <IconButton
-                                    size="large"
-                                    aria-controls="menu-appbar"
-                                    aria-haspopup="true"
-                                    onClick={handleOpenNavMenu}
-                                    color="black"
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-                                <Menu
-                                    id="menu-appbar"
-                                    anchorEl={anchorElNav}
-                                    anchorOrigin={{
-                                        vertical: 'bottom',
-                                        horizontal: 'left',
-                                    }}
-                                    keepMounted
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'left',
-                                    }}
-                                    open={Boolean(anchorElNav)}
-                                    onClose={handleCloseNavMenu}
-                                    sx={{
-                                        display: { xs: 'block', md: 'none' },
-                                    }}
-                                >
-                                    {navigation.map(({ id, title, path }) => (
-                                        <MenuItem key={path} onClick={handleCloseNavMenu}>
-                                        <Link key={id} href={path} onClick={handleCloseNavMenu}>
-                                            {title}
-                                        </Link>
-                                        </MenuItem>
-                                    ))}
-                                </Menu>
+                                    <Box>
+                                        <Box sx={{
+                                            height: "80px",
+                                            display: "flex",
+                                            justifyContent: "space-between",
+                                            borderBottom: "1px solid gray"
+                                        }}>
+                                            <Box sx={{
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                position: "fixed",
+                                                left: anchorElNav ? "0" : "-100%",
+                                                right: 0,
+                                                top: 0,
+                                                bottom: 0,
+                                                width: "100%",
+                                                height: "100vh",
+                                                backgroundColor: "#fff",
+                                                transition: "left .5s"
+                                            }}>
+                                                {navigation.map(({ id, title, path }) => (
+                                                    <Link
+                                                        onClick={() => setAnchorElNav(false)}
+                                                        className={pathname === path ? [styles.nav_link, styles.active, styles.nav_link_mobile].join(' ') : '' + styles.nav_link_mobile}
+                                                        key={id}
+                                                        href={path}
+                                                    >
+                                                        {title}
+                                                    </Link>
+                                                ))}
+                                                <Button
+                                                    sx={{
+                                                        boxShadow: "0 0 15px #4c72ff",
+                                                        borderRadius: "6px",
+                                                        fontSize: "21px"
+                                                    }}
+                                                    variant="contained"
+                                                >
+                                                    Личный кабинет
+                                                </Button>
+                                            </Box>
+                                            <Box
+                                                sx={{
+                                                    display: "block",
+                                                    position: "absolute",
+                                                    right: "10px",
+                                                    top: "27px",
+                                                    cursor: "pointer",
+                                                    zIndex: 10,
+                                                    color: "black"
+                                                }}
+                                                onClick={() => setAnchorElNav(!anchorElNav)}
+                                            >
+                                                {anchorElNav ? <AiOutlineClose size={35} /> : <AiOutlineMenu size={35} />}
+                                            </Box>
+                                        </Box>
+                                    </Box>
                             </Box>
                         </Toolbar>
             </Container>

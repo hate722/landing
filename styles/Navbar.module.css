@@ -23,3 +23,11 @@
 .nav_link.active::before {
     transform: scaleX(1);
 }
+
+.nav_link_mobile {
+    font-size: 35px
+}
+
+.nav_link_mobile:not(:last-child) {
+    margin-bottom: 20px;
+}
