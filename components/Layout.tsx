@@ -10,7 +10,6 @@ type layoutProps = {
 const Layout:FC<layoutProps> = ({ children }) => {
 
     const [scrollY, setScrollY] = useState(0);
-    const [loading, setLoading] = useState(true);
 
     const onScroll = useCallback(() => {
         const { pageYOffset, scrollY } = window;
@@ -30,12 +29,6 @@ const Layout:FC<layoutProps> = ({ children }) => {
     }, []);
 
     useEffect(() => {
-
-        /*window.addEventListener("load", () => {
-            alert("Page has uploaded!")
-            setLoading(false)
-        });*/
-
         window.addEventListener("scroll", onScroll, { passive: true });
 
         return () => {

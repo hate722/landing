@@ -9,8 +9,8 @@ const Footer:FC = () => (
         display: "flex",
         justifyContent: "space-between"
     }}>
-        <Link className={styles.footerLink} href={"/"}>Условия использования</Link>
-        <Link className={styles.footerLink} href={"/"}>Политика конфиденциальности</Link>
+        <Link className={styles.footerLink} href={"/terms/"}>Пользовательское соглашение</Link>
+        <Link className={styles.footerLink} href={"/privacy/"}>Политика конфиденциальности</Link>
     </Box>
   </footer>
 );

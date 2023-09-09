@@ -80,7 +80,7 @@ const Navbar:FC = () => {
                             </Typography>
                                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: "space-evenly" }, alignItems: "center" }}>
                                     {navigation.map(({ id, title, path }) => (
-                                        <Link className={pathname === path ? [styles.nav_link, styles.active].join(' ') : ''} key={id} href={path}>
+                                        <Link className={pathname === path ? [styles.nav_link, styles.active].join(' ') : styles.nav_link} key={id} href={path}>
                                             {title}
                                         </Link>
                                     ))}
