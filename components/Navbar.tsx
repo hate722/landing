@@ -1,18 +1,12 @@
-import React, {FC, useState} from "react";
+import React, {FC} from "react";
 import Link from "next/link";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import AdbIcon from '@mui/icons-material/Adb';
-import {Avatar, Button, MenuItem, Tooltip} from "@mui/material";
+import {Button} from "@mui/material";
 import {useRouter} from "next/router";
-import styles from "../styles/Navbar.module.css";
-import style from "../styles/Navbar.module.css";
 import {AiOutlineClose, AiOutlineMenu} from "react-icons/ai";
 
 const navigation = [
@@ -27,16 +21,7 @@ const pages = ['Products', 'Pricing', 'Blog'];
 const Navbar:FC = () => {
 
     const { pathname } = useRouter();
-
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
 
   return (
       <Box>
@@ -80,9 +65,34 @@ const Navbar:FC = () => {
                             </Typography>
                                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: "space-evenly" }, alignItems: "center" }}>
                                     {navigation.map(({ id, title, path }) => (
-                                        <Link className={pathname === path ? [styles.nav_link, styles.active].join(' ') : styles.nav_link} key={id} href={path}>
-                                            {title}
-                                        </Link>
+                                        <Box sx={{
+                                            "& > a": {
+                                                color: "#000",
+                                                textDecoration: "none",
+                                                fontSize: "15px",
+                                                fontWeight: "500",
+                                                position: "relative"
+                                            },
+                                            "& > a::before": {
+                                                content: '""',
+                                                position: "absolute",
+                                                display: "block",
+                                                width: "100%",
+                                                height: "2px",
+                                                bottom: "-2px",
+                                                left: "0",
+                                                background: "#1976d2",
+                                                transform: pathname === path ? "scaleX(1)" : "scaleX(0)",
+                                                transition: "transform 0.3s ease"
+                                            },
+                                            "& > a:hover::before": {
+                                                transform: "scaleX(1)"
+                                            }
+                                        }}>
+                                            <Link key={id} href={path}>
+                                                {title}
+                                            </Link>
+                                        </Box>
                                     ))}
                                     <Button
                                         sx={{
@@ -121,14 +131,22 @@ const Navbar:FC = () => {
                                                 transition: "left .5s"
                                             }}>
                                                 {navigation.map(({ id, title, path }) => (
-                                                    <Link
-                                                        onClick={() => setAnchorElNav(false)}
-                                                        className={pathname === path ? [styles.nav_link, styles.active, styles.nav_link_mobile].join(' ') : '' + styles.nav_link_mobile}
-                                                        key={id}
-                                                        href={path}
-                                                    >
-                                                        {title}
-                                                    </Link>
+                                                    <Box sx={{
+                                                        "& > a": {
+                                                            fontSize: "35px"
+                                                        },
+                                                        "&:not(:last-child)": {
+                                                            marginBottom: "20px"
+                                                        }
+                                                    }}>
+                                                        <Link
+                                                            onClick={() => setAnchorElNav(false)}
+                                                            key={id}
+                                                            href={path}
+                                                        >
+                                                            {title}
+                                                        </Link>
+                                                    </Box>
                                                 ))}
                                                 <Button
                                                     sx={{

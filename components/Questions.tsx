@@ -5,40 +5,55 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {Box} from "@mui/material";
+import {useEffect} from "react";
 
 export default function BasicAccordion() {
-    const [openAccordion, setOpenAccordion] = React.useState<boolean | HTMLElement>(true);
+    const [accordion, setAccordion] = React.useState<object>({});
+
+    useEffect(() => {
+        setAccordion({
+            'firstAccordion': true,
+            'secondAccordion': false,
+            'thirdAccordion': false,
+            'fourthAccordion': false,
+            'fifthAccordion': false
+        });
+    }, []);
 
     return (
         <Box>
             <Accordion
-               expanded={!!openAccordion}
-               onClick={() => openAccordion === true ? setOpenAccordion(false) : setOpenAccordion(true)}
-               sx={{
-                   marginBottom: 3,
-                   boxShadow: "0 0 15px rgb(0 0 0 / 20%)",
-                   borderRadius: "6px",
-                   "&.MuiAccordion-root::before": {
-                       backgroundColor: "unset"
-                   }
-               }}
+                expanded={!!accordion.firstAccordion}
+                sx={{
+                    marginBottom: 3,
+                    borderRadius: "6px",
+                    boxShadow: "0 0 15px rgb(0 0 0 / 20%)",
+                    "&.MuiAccordion-root::before": {
+                        backgroundColor: "unset"
+                    },
+                    "&.MuiAccordion-root:first-of-type": {
+                        borderTopLeftRadius: "6px",
+                        borderTopRightRadius: "6px"
+                    }
+                }}
             >
                 <AccordionSummary
+                    onClick={() => {
+                        let newAccordion = {...accordion};
+                        newAccordion.firstAccordion = !accordion.firstAccordion;
+                        setAccordion(newAccordion);
+                    }}
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
                     sx={{
                         "&.MuiAccordionSummary-root:hover": {
                             background: "#43a2ff"
                         },
                         transition: ".45s all",
-                        borderRadius: "6px"
+                        borderRadius: !accordion.firstAccordion ? "6px" : "6px 6px 0 0",
+                        background: accordion.firstAccordion ? "#43a2ff" : "unset"
                     }}
                 >
-                    <Typography sx={{
-                        fontWeight: "600"
-                    }}
-                    >
+                    <Typography sx={{ fontWeight: "600" }}>
                         Что такое nameSite?
                     </Typography>
                 </AccordionSummary>
@@ -50,24 +65,30 @@ export default function BasicAccordion() {
                 </AccordionDetails>
             </Accordion>
             <Accordion
+                expanded={accordion.secondAccordion}
                 sx={{
                 marginBottom: 3,
-                boxShadow: "0 0 15px rgb(0 0 0 / 20%)",
                 borderRadius: "6px",
+                boxShadow: "0 0 15px rgb(0 0 0 / 20%)",
                 "&.MuiAccordion-root::before": {
                     backgroundColor: "unset"
                 }
             }}
             >
                 <AccordionSummary
+                    onClick={() => {
+                        let newAccordion = {...accordion};
+                        newAccordion.secondAccordion = !accordion.secondAccordion;
+                        setAccordion(newAccordion);
+                    }}
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
                     sx={{
                         "&.MuiAccordionSummary-root:hover": {
                             background: "#43a2ff"
                         },
-                        transition: ".45s all"
+                        transition: ".45s all",
+                        borderRadius: !accordion.secondAccordion ? "6px" : "6px 6px 0 0",
+                        background: accordion.secondAccordion ? "#43a2ff" : "unset"
                     }}
                 >
                     <Typography sx={{ fontWeight: "600" }}>
@@ -82,6 +103,7 @@ export default function BasicAccordion() {
                 </AccordionDetails>
             </Accordion>
             <Accordion
+                expanded={accordion.thirdAccordion}
                 sx={{
                 marginBottom: 3,
                 boxShadow: "0 0 15px rgb(0 0 0 / 20%)",
@@ -92,14 +114,19 @@ export default function BasicAccordion() {
             }}
             >
                 <AccordionSummary
+                    onClick={() => {
+                        let newAccordion = {...accordion};
+                        newAccordion.thirdAccordion = !accordion.thirdAccordion;
+                        setAccordion(newAccordion);
+                    }}
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
                     sx={{
                         "&.MuiAccordionSummary-root:hover": {
                             background: "#43a2ff"
                         },
-                        transition: ".45s all"
+                        transition: ".45s all",
+                        borderRadius: !accordion.thirdAccordion ? "6px" : "6px 6px 0 0",
+                        background: accordion.thirdAccordion ? "#43a2ff" : "unset"
                     }}
                 >
                     <Typography sx={{ fontWeight: "600" }}>
@@ -114,6 +141,7 @@ export default function BasicAccordion() {
                 </AccordionDetails>
             </Accordion>
             <Accordion
+                expanded={accordion.fourthAccordion}
                 sx={{
                 marginBottom: 3,
                 boxShadow: "0 0 15px rgb(0 0 0 / 20%)",
@@ -124,14 +152,19 @@ export default function BasicAccordion() {
             }}
             >
                 <AccordionSummary
+                    onClick={() => {
+                        let newAccordion = {...accordion};
+                        newAccordion.fourthAccordion = !accordion.fourthAccordion;
+                        setAccordion(newAccordion);
+                    }}
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
                     sx={{
                         "&.MuiAccordionSummary-root:hover": {
                             background: "#43a2ff"
                         },
-                        transition: ".45s all"
+                        transition: ".45s all",
+                        borderRadius: !accordion.fourthAccordion ? "6px" : "6px 6px 0 0",
+                        background: accordion.fourthAccordion ? "#43a2ff" : "unset"
                     }}
                 >
                     <Typography sx={{ fontWeight: "600" }}>
@@ -146,6 +179,7 @@ export default function BasicAccordion() {
                 </AccordionDetails>
             </Accordion>
             <Accordion
+                expanded={accordion.fifthAccordion}
                 sx={{
                 marginBottom: 3,
                 boxShadow: "0 0 15px rgb(0 0 0 / 20%)",
@@ -156,14 +190,19 @@ export default function BasicAccordion() {
                 transition: ".45s all"
             }}>
                 <AccordionSummary
+                    onClick={() => {
+                        let newAccordion = {...accordion};
+                        newAccordion.fifthAccordion = !accordion.fifthAccordion;
+                        setAccordion(newAccordion);
+                    }}
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
                     sx={{
                         "&.MuiAccordionSummary-root:hover": {
                             background: "#43a2ff"
                         },
-                        transition: ".45s all"
+                        transition: ".45s all",
+                        borderRadius: !accordion.fifthAccordion ? "6px" : "6px 6px 0 0",
+                        background: accordion.fifthAccordion ? "#43a2ff" : "unset"
                     }}
                 >
                     <Typography sx={{ fontWeight: "600" }}>

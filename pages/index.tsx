@@ -8,6 +8,7 @@ import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 import Advantages from "@/components/Advantages";
 import Questions from "@/components/Questions";
+import ScrollToTop from "@/components/scrollToTop";
 
 const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
     color: theme.palette.getContrastText(purple[500]),

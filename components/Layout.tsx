@@ -1,7 +1,8 @@
 import React, {FC, ReactNode, useCallback, useEffect, useState} from "react";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {Container} from "@mui/material";
+import {Button, Container} from "@mui/material";
+import Navbar from "@/components/Navbar";
+import ScrollToTop from "@/components/scrollToTop";
 
 type layoutProps = {
   children: ReactNode,
@@ -9,7 +10,7 @@ type layoutProps = {
 
 const Layout:FC<layoutProps> = ({ children }) => {
 
-    const [scrollY, setScrollY] = useState(0);
+    const [scrollY, setScrollY] = useState<number>(0);
 
     const onScroll = useCallback(() => {
         const { pageYOffset, scrollY } = window;
@@ -24,7 +25,6 @@ const Layout:FC<layoutProps> = ({ children }) => {
             header.style.padding = "20px 0";
         }
 
-        console.log("yOffset", pageYOffset, "scrollY", scrollY);
         setScrollY(window.pageYOffset);
     }, []);
 
@@ -41,22 +41,10 @@ const Layout:FC<layoutProps> = ({ children }) => {
             maxWidth={"lg"}
             sx={{ minHeight: "100vh", display: "grid", gridAutoRows: "auto 1fr auto" }}
         >
-            <Header/>
-            {/*<Box sx={{
-          zIndex: "-1",
-          position: "fixed",
-          width: "100%",
-          height: "100%"
-      }}>
-          <Image
-              src={"/bc-image.png"}
-              alt={"background-image"}
-              layout={"fill"}
-              objectFit={"cover"}
-          />
-      </Box>*/}
+            <Navbar />
+            <ScrollToTop />
             {children}
-            <Footer/>
+            <Footer />
         </Container>
     )
 };
