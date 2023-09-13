@@ -21,7 +21,7 @@ const pages = ['Products', 'Pricing', 'Blog'];
 const Navbar:FC = () => {
 
     const { pathname } = useRouter();
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+    const [anchorElNav, setAnchorElNav] = React.useState<boolean>(false);
 
   return (
       <Box>

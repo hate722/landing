@@ -1,6 +1,6 @@
 import React, {FC, ReactNode, useCallback, useEffect, useState} from "react";
 import Footer from "@/components/Footer";
-import {Button, Container} from "@mui/material";
+import {Container} from "@mui/material";
 import Navbar from "@/components/Navbar";
 import ScrollToTop from "@/components/scrollToTop";
 
@@ -15,7 +15,7 @@ const Layout:FC<layoutProps> = ({ children }) => {
     const onScroll = useCallback(() => {
         const { pageYOffset, scrollY } = window;
 
-        let header = document.querySelector(".appBar");
+        let header:HTMLElement = document.querySelector(".appBar");
 
         if (scrollY >= 100) {
             header.style.boxShadow = "0 0 10px gray";
@@ -32,7 +32,7 @@ const Layout:FC<layoutProps> = ({ children }) => {
         window.addEventListener("scroll", onScroll, { passive: true });
 
         return () => {
-            window.removeEventListener("scroll", onScroll, { passive: true });
+            (window as any).window.removeEventListener("scroll", onScroll, { passive: true });
         }
     }, []);
 

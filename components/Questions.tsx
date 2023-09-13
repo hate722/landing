@@ -8,17 +8,13 @@ import {Box} from "@mui/material";
 import {useEffect} from "react";
 
 export default function BasicAccordion() {
-    const [accordion, setAccordion] = React.useState<object>({});
-
-    useEffect(() => {
-        setAccordion({
-            'firstAccordion': true,
-            'secondAccordion': false,
-            'thirdAccordion': false,
-            'fourthAccordion': false,
-            'fifthAccordion': false
-        });
-    }, []);
+    const [accordion, setAccordion] = React.useState<object | any>({
+        'firstAccordion': true,
+        'secondAccordion': false,
+        'thirdAccordion': false,
+        'fourthAccordion': false,
+        'fifthAccordion': false
+    });
 
     return (
         <Box>
