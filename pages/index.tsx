@@ -98,7 +98,7 @@ const Home = () => (
             <Advantages />
         </Box>
 
-        <Box sx={{ marginBottom: "50px" }}>
+        <Box sx={{ marginBottom: "50px" }} id={"faq"}>
             <h2 style={{ textAlign: "center" }}>Вопрос / ответ</h2>
 
             <Questions />

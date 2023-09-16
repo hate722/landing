@@ -13,19 +13,19 @@ const navigation = [
   { id: 1, title: 'Главная', path: '/' },
   { id: 2, title: 'Продукты', path: '/products' },
   { id: 3, title: 'Новости', path: '/news' },
-  { id: 4, title: 'FAQ', path: '/faq' }
+  { id: 4, title: 'FAQ', path: '/#faq' }
 ];
 
 const pages = ['Products', 'Pricing', 'Blog'];
 
 const Navbar:FC = () => {
 
-    const { pathname } = useRouter();
+    const router = useRouter();
     const [anchorElNav, setAnchorElNav] = React.useState<boolean>(false);
 
   return (
       <Box>
-        <AppBar className={"appBar"} position="fixed" sx={{ background: "white", boxShadow: "none", padding: "20px 0", transition: "all .4s ease-out" }}>
+        <AppBar className={"appBar"} position="fixed" sx={{ background: "white", boxShadow: "none", padding: { sm: "0", md: "20px 0" }, transition: "all .4s ease-out" }}>
             <Container>
                         <Toolbar disableGutters>
                             <Typography
@@ -82,14 +82,18 @@ const Navbar:FC = () => {
                                                 bottom: "-2px",
                                                 left: "0",
                                                 background: "#1976d2",
-                                                transform: pathname === path ? "scaleX(1)" : "scaleX(0)",
+                                                transform: router.pathname === path ? "scaleX(1)" : "scaleX(0)",
                                                 transition: "transform 0.3s ease"
                                             },
                                             "& > a:hover::before": {
                                                 transform: "scaleX(1)"
                                             }
                                         }}>
-                                            <Link key={id} href={path}>
+                                            <Link
+                                                key={id}
+                                                href={path}
+                                                scroll={title !== "FAQ"}
+                                            >
                                                 {title}
                                             </Link>
                                         </Box>
@@ -133,10 +137,26 @@ const Navbar:FC = () => {
                                                 {navigation.map(({ id, title, path }) => (
                                                     <Box sx={{
                                                         "& > a": {
-                                                            fontSize: "35px"
+                                                            fontSize: "35px",
+                                                            color: "#000",
+                                                            textDecoration: "none",
+                                                            fontWeight: "500",
+                                                            position: "relative"
                                                         },
                                                         "&:not(:last-child)": {
                                                             marginBottom: "20px"
+                                                        },
+                                                        "& > a::before": {
+                                                            content: '""',
+                                                            position: "absolute",
+                                                            display: "block",
+                                                            width: "100%",
+                                                            height: "2px",
+                                                            bottom: "-2px",
+                                                            left: "0",
+                                                            background: "#1976d2",
+                                                            transform: router.pathname === path ? "scaleX(1)" : "scaleX(0)",
+                                                            transition: "transform 0.3s ease"
                                                         }
                                                     }}>
                                                         <Link
@@ -164,7 +184,7 @@ const Navbar:FC = () => {
                                                     display: "block",
                                                     position: "absolute",
                                                     right: "10px",
-                                                    top: "27px",
+                                                    top: "20px",
                                                     cursor: "pointer",
                                                     zIndex: 10,
                                                     color: "black"
