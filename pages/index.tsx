@@ -8,7 +8,6 @@ import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 import Advantages from "@/components/Advantages";
 import Questions from "@/components/Questions";
-import ScrollToTop from "@/components/scrollToTop";
 
 const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
     color: theme.palette.getContrastText(purple[500]),
@@ -39,7 +38,8 @@ const Home = () => (
                     <h1 style={{ fontSize: "35px" }}>Приветствуем на NameSite!</h1>
                 </Box>
                 <Box sx={{
-                    display: { xs: 'block', sm: "block", md: 'none' }
+                    display: { xs: 'block', sm: "block", md: 'none' },
+                    marginTop: "60px"
                 }}>
                     <h1 style={{ fontSize: "25px" }}>Приветствуем на NameSite!</h1>
                 </Box>

@@ -19,7 +19,11 @@ const Layout:FC<layoutProps> = ({ children }) => {
 
         if (scrollY >= 100) {
             header.style.boxShadow = "0 0 10px gray";
-            header.style.padding = "10px 0";
+            if (window.innerWidth > 890) {
+                header.style.padding = "10px 0";
+            } else {
+                header.style.padding = "0";
+            }
         } else {
             header.style.boxShadow = "none";
             header.style.padding = "20px 0";
@@ -37,15 +41,18 @@ const Layout:FC<layoutProps> = ({ children }) => {
     }, []);
 
     return (
-        <Container
-            maxWidth={"lg"}
-            sx={{ minHeight: "100vh", display: "grid", gridAutoRows: "auto 1fr auto" }}
-        >
-            <Navbar />
+        <>
             <ScrollToTop />
-            {children}
-            <Footer />
-        </Container>
+            <Container
+                maxWidth={"lg"}
+                sx={{ minHeight: "100vh", display: "grid", gridAutoRows: "auto 1fr auto" }}
+            >
+                <Navbar />
+                {children}
+                <Footer />
+            </Container>
+        </>
+
     )
 };
 

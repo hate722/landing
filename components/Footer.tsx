@@ -3,7 +3,7 @@ import {Box} from "@mui/material";
 import Link from "next/link";
 
 const Footer:FC = () => (
-  <footer style={{ padding: "10px" }}>
+  <footer style={{ padding: "10px 0px" }}>
     <Box sx={{
         display: "flex",
         justifyContent: { sm: "space-between" },

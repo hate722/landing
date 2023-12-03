@@ -16,8 +16,6 @@ const navigation = [
   { id: 4, title: 'FAQ', path: '/#faq' }
 ];
 
-const pages = ['Products', 'Pricing', 'Blog'];
-
 const Navbar:FC = () => {
 
     const router = useRouter();
