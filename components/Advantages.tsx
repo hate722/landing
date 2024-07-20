@@ -82,7 +82,7 @@ export default function ResponsiveGrid() {
                             </Box>
                             <Box sx={{ maxWidth: "75%", display: "flex", flexDirection: "column", height: "130px", textAlign: "start" }}>
                                 <span style={{ fontWeight: 600, fontSize: "17px" }}>Безопасность</span>
-                                <p>Мы заботимся о состоянии продукта, что бы предотвратить любые детекты ПО</p>
+                                <p>Мы заботимся о состоянии продукта, что бы предотвратить ляляляля</p>
                             </Box>
                         </Box>
                     </Item>

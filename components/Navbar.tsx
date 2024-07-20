@@ -11,9 +11,9 @@ import {AiOutlineClose, AiOutlineMenu} from "react-icons/ai";
 
 const navigation = [
   { id: 1, title: 'Главная', path: '/' },
-  { id: 2, title: 'Продукты', path: '/products' },
-  { id: 3, title: 'Новости', path: '/news' },
-  { id: 4, title: 'FAQ', path: '/#faq' }
+  { id: 3, title: 'menu item', path: '/#faq' },
+  { id: 4, title: 'menu item 2', path: '/#' },
+  { id: 5, title: 'menu item 3', path: '/#' }
 ];
 
 const Navbar:FC = () => {
@@ -23,7 +23,7 @@ const Navbar:FC = () => {
 
   return (
       <Box>
-        <AppBar className={"appBar"} position="fixed" sx={{ background: "white", boxShadow: "none", padding: { sm: "0", md: "20px 0" }, transition: "all .4s ease-out" }}>
+        <AppBar className={"appBar"} sx={{ position: "fixed", zIndex: 1337, background: "white", boxShadow: "none", padding: { sm: "0", md: "20px 0" }, transition: "all .4s ease-out" }}>
             <Container>
                         <Toolbar disableGutters>
                             <Typography
@@ -106,7 +106,7 @@ const Navbar:FC = () => {
                                         }}
                                         variant="contained"
                                     >
-                                        Личный кабинет
+                                        Например быстрая связь (подумать)
                                     </Button>
                                 </Box>
                             <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
@@ -153,7 +153,7 @@ const Navbar:FC = () => {
                                                             bottom: "-2px",
                                                             left: "0",
                                                             background: "#1976d2",
-                                                            transform: router.pathname === path ? "scaleX(1)" : "scaleX(0)",
+                                                            transform: "scaleX(0)",
                                                             transition: "transform 0.3s ease"
                                                         }
                                                     }}>

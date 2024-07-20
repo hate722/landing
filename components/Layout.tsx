@@ -1,6 +1,6 @@
 import React, {FC, ReactNode, useCallback, useEffect, useState} from "react";
 import Footer from "@/components/Footer";
-import {Container} from "@mui/material";
+import {Box, Container} from "@mui/material";
 import Navbar from "@/components/Navbar";
 import ScrollToTop from "@/components/scrollToTop";
 
@@ -45,7 +45,7 @@ const Layout:FC<layoutProps> = ({ children }) => {
             <ScrollToTop />
             <Container
                 maxWidth={"lg"}
-                sx={{ minHeight: "100vh", display: "grid", gridAutoRows: "auto 1fr auto" }}
+                sx={{ position: "relative", minHeight: "100vh", display: "grid", gridAutoRows: "auto 1fr auto" }}
             >
                 <Navbar />
                 {children}

@@ -18,6 +18,7 @@ export default function BasicAccordion() {
 
     return (
         <Box>
+            <Box className="faq_bg" />
             <Accordion
                 expanded={!!accordion.firstAccordion}
                 sx={{
@@ -50,13 +51,13 @@ export default function BasicAccordion() {
                     }}
                 >
                     <Typography sx={{ fontWeight: "600" }}>
-                        Что такое nameSite?
+                        Вопрос 1?
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Мы небольшая команда энтузиастов, желающая максимально упростить Вам игру.<br/>
-                        Сделать времяпровождение в различных играх максимально комфортным и приносящим удовольствие!
+                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля<br/>
+                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -88,13 +89,13 @@ export default function BasicAccordion() {
                     }}
                 >
                     <Typography sx={{ fontWeight: "600" }}>
-                        На что способно ваше ПО?
+                       Вопрос 2?
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Всё зависит от конкретной игры и общего времени работы над софтом.<br/>
-                        Более подробную информацию о каждом продукте можно увидеть на странице самого ПО.
+                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля<br/>
+                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -126,13 +127,13 @@ export default function BasicAccordion() {
                     }}
                 >
                     <Typography sx={{ fontWeight: "600" }}>
-                        Сложно ли новичку освоиться с настройками?
+                        Вопрос 3?
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Наше меню интуитивно понятное. Имеется поддержка нескольких языков.<br/>
-                        В случае возникновения различных вопросов Вы всегда можете обратиться к нам за помощью.
+                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля<br/>
+                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -164,13 +165,13 @@ export default function BasicAccordion() {
                     }}
                 >
                     <Typography sx={{ fontWeight: "600" }}>
-                        Могу ли я использовать один аккаунт на двух ПК?
+                        Вопрос 4?
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Нет. У нас действует определённое правило: Один аккаунт = Один ПК.<br/>
-                        За передачу аккаунта выдаётся блокировка на весь аккаунт.
+                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля<br/>
+                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -202,13 +203,13 @@ export default function BasicAccordion() {
                     }}
                 >
                     <Typography sx={{ fontWeight: "600" }}>
-                        Могу ли я получить бан за использование вашего софта?
+                        Вопрос 5?
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Никто не может гарантировать 100% защиты от возможных блокировок.<br/>
-                        Мы стараемся максимально огородить наших пользователей от проблем с обнаружением ПО.
+                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля<br/>
+                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля
                     </Typography>
                 </AccordionDetails>
             </Accordion>

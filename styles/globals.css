@@ -22,3 +22,31 @@ a {
   text-decoration: none;
   color: #000;
 }
+
+.header_bg {
+  background: url(../public/girl_notebook2.png) no-repeat right center;
+  background-position: calc(100% - 130px) center;
+  background-size: 26%;
+}
+
+.faq_bg {
+  background-image: url(../public/bg_section.png);
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+}
+
+@media (max-width: 1004px) {
+  .header_bg {
+    background-position: calc(100% - 25px) center;
+    background-size: 40%;
+  }
+}
+
+@media (max-width: 899px) {
+  .header_bg {
+    background: unset;
+  }
+}
