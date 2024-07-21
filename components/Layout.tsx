@@ -1,11 +1,11 @@
 import React, {FC, ReactNode, useCallback, useEffect, useState} from "react";
 import Footer from "@/components/Footer";
-import {Box, Container} from "@mui/material";
+import {Container} from "@mui/material";
 import Navbar from "@/components/Navbar";
 import ScrollToTop from "@/components/scrollToTop";
 
 type layoutProps = {
-  children: ReactNode,
+    children: ReactNode,
 }
 
 const Layout:FC<layoutProps> = ({ children }) => {
@@ -45,7 +45,7 @@ const Layout:FC<layoutProps> = ({ children }) => {
             <ScrollToTop />
             <Container
                 maxWidth={"lg"}
-                sx={{ position: "relative", minHeight: "100vh", display: "grid", gridAutoRows: "auto 1fr auto" }}
+                sx={{ minHeight: "100vh", display: "grid", gridAutoRows: "auto 1fr auto" }}
             >
                 <Navbar />
                 {children}

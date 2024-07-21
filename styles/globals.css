@@ -29,15 +29,6 @@ a {
   background-size: 26%;
 }
 
-.faq_bg {
-  background-image: url(../public/bg_section.png);
-  height: 400px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: absolute;
-  width: 100%;
-}
-
 @media (max-width: 1004px) {
   .header_bg {
     background-position: calc(100% - 25px) center;

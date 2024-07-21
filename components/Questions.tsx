@@ -5,7 +5,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {Box} from "@mui/material";
-import {useEffect} from "react";
 
 export default function BasicAccordion() {
     const [accordion, setAccordion] = React.useState<object | any>({
@@ -18,7 +17,6 @@ export default function BasicAccordion() {
 
     return (
         <Box>
-            <Box className="faq_bg" />
             <Accordion
                 expanded={!!accordion.firstAccordion}
                 sx={{
@@ -56,8 +54,8 @@ export default function BasicAccordion() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля<br/>
-                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля
+                        ляляляляляляллялялялял<br/>
+                        ляляляляляляллялялялял
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -94,8 +92,8 @@ export default function BasicAccordion() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля<br/>
-                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля
+                        ляляляляляляллялялялял<br/>
+                        ляляляляляляллялялялял
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -132,8 +130,8 @@ export default function BasicAccordion() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля<br/>
-                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля
+                        ляляляляляляллялялялял<br/>
+                        ляляляляляляллялялялял
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -170,8 +168,8 @@ export default function BasicAccordion() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля<br/>
-                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля
+                        ляляляляляляллялялялял<br/>
+                        ляляляляляляллялялялял
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -208,8 +206,8 @@ export default function BasicAccordion() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля<br/>
-                        ляляляляляляллялялялялялляляляляллляляляллялялялляляля
+                        ляляляляляляллялялялял<br/>
+                        ляляляляляляллялялялял
                     </Typography>
                 </AccordionDetails>
             </Accordion>
