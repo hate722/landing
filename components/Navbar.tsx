@@ -106,7 +106,7 @@ const Navbar:FC = () => {
                                         }}
                                         variant="contained"
                                     >
-                                        Например быстрая связь (подумать)
+                                        Связаться с нами
                                     </Button>
                                 </Box>
                             <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -14,10 +14,10 @@ const Error = () => {
   return (
     <div>
       <Head>
-        <title>Error</title>
+        <title>nameSite — 404</title>
       </Head>
       <div>
-          Something is going wrong...
+          Упс! Что-то пошло не так, этой страницы не существует
       </div>
     </div>
   )
